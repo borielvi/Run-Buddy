@@ -339,9 +339,37 @@
     flex: 1;
 }
 
-.trainer img {
-    width: 35%;
-    float: left;
+.trainer:hover .trainer-img h3, .trainer:hover .trainer-img h4 {
+    position: relative;
+    z-index: 9988;
+    top: 200px;
+    overflow: hidden;
+}
+
+.trainer-bio h3 {
+    font-size: 28px;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+  
+.trainer-bio h4 {
+    font-weight: lighter;
+    font-size: 22px;
+    margin-bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+.trainer-img h3 {
+    top: 0;
+    transition: 200 0;
+}
+
+.trainer-img h4 {
+    top: 0;
+    transition: 200 0;
 }
   
 .trainer-bio {
@@ -367,17 +395,42 @@
 
 .trainer-bio h3 {
     font-size: 28px;
+    position: relative;
 }
   
 .trainer-bio h4 {
     font-weight: lighter;
     font-size: 22px;
     margin-bottom: 15px;
+    position: relative;
 }
   
 .trainer-bio p {
     font-size: 17px;
-    
+}
+
+.trainer-1 {
+    background-image: url("./trainer-1.jpg");
+    background-size: cover;
+}
+
+.trainer-2 {
+    background-image: url("./trainer-2.jpg");
+    background-size: cover;
+}
+
+.trainer-3 {
+    background-image: url("./trainer-3.jpg");
+    background-size: cover;
+}
+
+.trainer-img {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    padding: 15px;
+    align-items: flex-start;
+    display: none;
 }
 
 .section-title {
@@ -389,6 +442,37 @@
     margin: 0 auto 35px auto;
     width: 50%;
 
+}
+
+.div {
+    color: purple;
+    font-size: 20px;
+    transition-duration: 2s; /* will apply to both color and font-size */
+}
+  
+.div:hover {
+    color: black;
+    font-size: 200px;
+}
+
+.trainer-img::before {
+    position: absolute;
+}
+
+.trainer-img::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: rgba(252, 225, 56, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.trainer-img::after {
+    opacity: 0;
+    transition: 0;
 }
 
 /* REACH OUT STYLES START */
@@ -641,6 +725,18 @@
       writing-mode: unset;
       grid-column: 1 / -1;
       grid-row: -1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .trainer-img h3, .trainer-img h4, .trainer-img::after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .trainer-bio h3, .trainer-bio h4 {
+        display: block;
     }
 }
   
